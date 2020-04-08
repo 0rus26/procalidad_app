@@ -20,6 +20,11 @@ import {
   updateClient,
   deleteClient
 } from "./handlers/clientes/cliente.ts";
+import {
+  getCountries,
+  getCountry,
+  searchCountry
+} from "./handlers/maestro/pais.ts";
 
 const main_router = new Router();
 
@@ -45,6 +50,12 @@ main_router
   .get<{ id: string }>("/api/clientes/cliente/:id", getClient)
   .put<{ id: string }>("/api/clientes/cliente/:id", updateClient)
   .delete<{ id: string }>("/api/clientes/cliente/:id", deleteClient);
+
+
+main_router
+  .get("/api/maestro/pais", getCountries)
+  .get("/api/maestro/pais/search", searchCountry)
+  .get<{ id: string }>("/api/maestro/pais/:id", getCountry);
 
 export const routes = main_router.routes();
 export const allowedMethods = main_router.allowedMethods();
