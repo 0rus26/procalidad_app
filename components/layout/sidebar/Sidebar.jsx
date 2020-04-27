@@ -28,6 +28,13 @@ import {
 const structure = [
   { label: "Inicio", link: "/home", icon: <HomeIcon /> },
   {
+    label: "Sistema",
+    icon: <AccountBoxIcon />,
+    children: [
+      { label: "Variables", link: "/maestro/variables" },
+    ],
+  },
+  {
     label: "Clientes",
     icon: <AccountBoxIcon />,
     children: [
